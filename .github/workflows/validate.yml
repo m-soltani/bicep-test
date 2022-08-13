@@ -21,7 +21,8 @@ jobs:
    - name: analyze
      uses: microsoft/ps-rule@v2.3.2
      with:
-      outputType: Sarif
-      inputPath: 'main.bicep'
-      modules: 'PSRule.Rules.Azure'
+       inputType: inputPath
+       outputType: 'Sarif'  
+       inputPath: 'main.bicep'
+       modules: 'PSRule.Rules.Azure'
 
