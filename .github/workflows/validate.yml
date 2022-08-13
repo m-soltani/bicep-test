@@ -22,4 +22,6 @@ jobs:
      uses: microsoft/ps-rule@v2.3.2
      with:
       outputType: Markdown
+      inputPath: 'main.bicep'
+      modules: 'PSRule.Rules.Azure'
 
