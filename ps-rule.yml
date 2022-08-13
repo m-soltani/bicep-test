@@ -3,11 +3,6 @@ configuration:
   AZURE_BICEP_FILE_EXPANSION: true
 
 
-rule:
-  tag:
-    severity:
-    - Warning
-    
 output:
   as: Summary
   banner: Minimal
