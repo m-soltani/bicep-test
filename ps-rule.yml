@@ -1,3 +1,15 @@
 ## YAML: Enable expansion for Bicep source files.
 configuration:
   AZURE_BICEP_FILE_EXPANSION: true
+
+output:
+  as: Summary
+  banner: Minimal
+  culture:
+  - en-US
+  encoding: UTF8
+  footer: RuleCount
+  format: Json
+  outcome: Fail
+  sarifProblemsOnly: false
+  style: GitHubActions
