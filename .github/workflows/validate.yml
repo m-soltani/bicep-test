@@ -28,6 +28,7 @@ jobs:
        modules: 'PSRule.Rules.Azure'
        outputFormat: Sarif
        outputPath: reports/ps-rule-results.sarif
+       baseline: 'Azure.GA_2022_06'
 
    - name: Upload results to security tab
      uses: github/codeql-action/upload-sarif@v2
