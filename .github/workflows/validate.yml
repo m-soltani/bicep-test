@@ -1,4 +1,4 @@
-name: nalyze Azure template files
+name: analyze Azure template files
 
 on:
   push:
@@ -21,8 +21,14 @@ jobs:
    - name: analyze
      uses: microsoft/ps-rule@v2.3.2
      with:
-       inputType: inputPath
-       outputFormat: Markdown
-       inputPath: 'main.bicep'
+       inputType: repository
        modules: 'PSRule.Rules.Azure'
+       outputFormat: Sarif
+       outputPath: reports/ps-rule-results.sarif
+
+   - name: Upload results to security tab
+     uses: github/codeql-action/upload-sarif@v2
+     with:
+      sarif_file: reports/ps-rule-results.sarif
+  
 
