@@ -17,18 +17,17 @@ jobs:
    steps:
    - name: Checkout
      uses: actions/checkout@v3
-   - run: |
-        Set-PSRepository -Name 'PSGallery' -InstallationPolicy Trusted
-        Install-Module -Name Az.Resources -Scope CurrentUser -SkipPublisherCheck -AcceptLicense
-     shell: pwsh 
+  #  - run: |
+  #       Set-PSRepository -Name 'PSGallery' -InstallationPolicy Trusted
+  #       Install-Module -Name Az.Resources -Scope CurrentUser -SkipPublisherCheck -AcceptLicense
+  #    shell: pwsh 
    - name: analyze
      uses: microsoft/ps-rule@v2.3.2
      with:
        inputType: repository
-       modules: 'PSRule.Rules.Azure'
+       modules: 'PSRule.Rules.Azure,Az.Resources'
        outputFormat: Sarif
        outputPath: reports/ps-rule-results.sarif
-       baseline: 'Azure.GA_2022_06'
 
    - name: Upload results to security tab
      uses: github/codeql-action/upload-sarif@v2
