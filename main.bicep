@@ -1,6 +1,6 @@
 param automationAccountName string = 'automation-account1'
 param location string = resourceGroup().location
-param workspaceId string
+param workspaceId string = string('')
 
 
 param tags object = {
