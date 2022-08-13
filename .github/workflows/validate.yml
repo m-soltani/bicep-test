@@ -1,0 +1,25 @@
+name: nalyze Azure template files
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  validate:
+   runs-on: ubuntu-latest
+
+   steps:
+   - name: Checkout
+     uses: actions/checkout@v3
+   - name: analyze
+     uses: microsoft/ps-rule@v2.3.2
+     with:
+      outputType: Markdown
+
