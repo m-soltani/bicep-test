@@ -1,5 +1,5 @@
 param automationAccountName string = 'automation-account1'
-param location string
+param location string = resourceGroup().location
 param workspaceId string
 
 
